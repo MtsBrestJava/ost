@@ -1,4 +1,4 @@
-package by.mts.brest.java.Lesson9;
+package Lesson9;
 
 
 public class Human {

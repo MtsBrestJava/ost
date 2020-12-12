@@ -2,7 +2,7 @@ package by.mts.brest.java.classes_deeper;
 
 import java.util.ArrayList;
 
-public class Main extends Human {
+public class Main {
 
     // Наша программа для создания ОБЪЕКТОВ классов и тестов с ними
     public static void main(String[] args) {
