@@ -14,6 +14,7 @@ public class Main {
         System.out.println("abonentIgor = " + abonentIgor);
         System.out.println("podryadchikPetya = " + podryadchikPetya);
         System.out.println("----------------------------------------------");
+        System.out.println("----------------------------------------------");
 
         // Создадим и заполним список объектов класса mtsTechList (наследника Human) используя конструктор с двумя String'ами
         ArrayList<mtsTech> mtsTechList = new ArrayList<>();
