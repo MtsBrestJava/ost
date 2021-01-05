@@ -1,12 +1,12 @@
 package EnumGenerics;
 
-
 public class EnumClass {
     public enum alfavit {
         AAA ("Bukva A"),
         BBB ("Bukva B"),
         CCC ("Bukva C"),
         DDD ("Bukva D");
+
 
         String s;
 
