@@ -94,7 +94,7 @@ public class Potoki {
         public void start() {
           while (symbol != "q") {
                 symbol = in.nextLine();
-               // in.nextLine();
+                in.nextLine();
               System.out.println(symbol);
               in.close();
             }
