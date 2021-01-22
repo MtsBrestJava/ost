@@ -1,36 +1,42 @@
 package by.mts.brest.java;
 
+import javax.xml.stream.events.Namespace;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Scanner;
 
 
 
 public class Potoki {
-    static String symbol;
-    static int pozicion=5;
-    static int speed=5;
-    static int s=5;
-    static int p=5;
+    static int symbol;
+    static int pozicion = 10;
+    static int speed = 50;
+    static int s = 5;
+    static int p = 5;
 
-    public static void main(String[] args)  {
-
-        Stopper stopper = new Stopper();
-        stopper.start();
+    public static void main(String[] args) {
 
         inKeis readKeys = new inKeis();
         readKeys.start();
+
+        Stopper stopper = new Stopper();
+        stopper.start();
         Gogo gogo = new Gogo();
         gogo.run();
 
 
+
     }
+
 
     static class Gogo implements Runnable {
 
         @Override
         public void run() {
-            while (symbol != "q") {
+            while (symbol != 1) {
 
-                System.out.print(speed + "|");
+                System.out.printf("%5d", speed);
+                System.out.print("  |");
                 int i = 0;
                 while (i < pozicion) {
                     System.out.print(" ");
@@ -38,7 +44,7 @@ public class Potoki {
                 }
                 System.out.print("O");
                 int j = 0;
-                while (j < 20 - pozicion) {
+                while (j < 22 - pozicion) {
                     System.out.print(" ");
                     j++;
                 }
@@ -58,49 +64,89 @@ public class Potoki {
         @Override
         public void run() {
 
-            while (symbol != "q") {
-                p = 1 + (int) ( Math.random() * 2 );
-                s = 1 + (int) ( Math.random() * 2 );
+            while (symbol != 1) {
+                p = 1 + (int) (Math.random() * 2);
+                s = 1 + (int) (Math.random() * 2);
                 try {
                     Thread.sleep(100 * speed);
                 } catch (InterruptedException r) {
                     r.printStackTrace();
                 }
-                 switch (s) {
+                switch (s) {
 
                     case 1 -> {
-                        if (speed > 0 && speed < 20) speed++;
+                        if (speed > 1 && speed < 99) speed += 10;
                     }
                     case 2 -> {
-                        if (speed > 0 && speed < 20) speed--;
+                        if (speed > 1 && speed < 99) speed -= 10;
                     }
                 }
                 switch (p) {
                     case 1 -> {
-                        if (pozicion > 0 && pozicion < 20) pozicion++;
+                        if (pozicion > 0 && pozicion < 19) pozicion += 2;
                     }
                     case 2 -> {
-                        if (pozicion > 0 && pozicion < 20) pozicion--;
+                        if (pozicion > 0 && pozicion < 19) pozicion -= 2;
                     }
                 }
             }
         }
     }
 
-    static class Stopper extends Thread {
-             Scanner in = new Scanner(System.in);
+    static class Stopper extends Thread implements KeyListener {
+        //  Scanner in = new Scanner(System.in);
 
         @Override
         public void start() {
-          while (symbol != "q") {
-                symbol = in.nextLine();
-                in.nextLine();
-              System.out.println(symbol);
-              in.close();
+//          while (symbol != 1) {
+//              try {
+//                  symbol = in.nextInt();
+//                  in.nextLine();
+                  System.out.println(symbol);
+//              } catch (Exception e) {
+//                  e.printStackTrace();
+//              }
+            for (symbol = 100; symbol > 0; symbol--) {
+                try {
+                    Thread.sleep(2);
+                } catch (InterruptedException r) {
+                    r.printStackTrace();
+                }
+                symbol = 1;
             }
-
+        }
+        @Override
+        public void keyTyped(KeyEvent e) {
+            System.out.println("jbgljkbgflajkjkjk");
+            while (e.getKeyChar() == 'a')
+//            switch (e.getKeyChar()) {
+//                case 'd':
+                    symbol = 1;
+                    System.out.println("STOP");
+//                    break;
+//            }
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {
+            switch (e.getKeyChar()) {
+                case 'd':
+                    symbol = 1;
+                    System.out.println("STOP");
+                    break;
+            }
         }
 
+        @Override
+        public void keyReleased(KeyEvent e){
+                switch (e.getKeyChar()) {
+                    case 'd':
+                        symbol = 1;
+                        System.out.println("STOP");
+                        break;
+                }
+//            in.close();
+            }
+        }
     }
-}
+
 
