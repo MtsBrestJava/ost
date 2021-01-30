@@ -21,6 +21,7 @@ public class Potoki {
 
         Stopper stopper = new Stopper();
         stopper.start();
+
         Gogo gogo = new Gogo();
         gogo.run();
 
@@ -68,7 +69,7 @@ public class Potoki {
                 p = 1 + (int) (Math.random() * 2);
                 s = 1 + (int) (Math.random() * 2);
                 try {
-                    Thread.sleep(100 * speed);
+                    Thread.sleep(10 * speed);
                 } catch (InterruptedException r) {
                     r.printStackTrace();
                 }
@@ -83,10 +84,10 @@ public class Potoki {
                 }
                 switch (p) {
                     case 1 -> {
-                        if (pozicion > 0 && pozicion < 19) pozicion += 2;
+                        if (pozicion > 0 && pozicion < 19) pozicion += 1;
                     }
                     case 2 -> {
-                        if (pozicion > 0 && pozicion < 19) pozicion -= 2;
+                        if (pozicion > 0 && pozicion < 19) pozicion -= 1;
                     }
                 }
             }
@@ -106,13 +107,12 @@ public class Potoki {
 //              } catch (Exception e) {
 //                  e.printStackTrace();
 //              }
-            for (symbol = 100; symbol > 0; symbol--) {
+            for (symbol = 1000; symbol > 1; symbol--) {
                 try {
                     Thread.sleep(2);
                 } catch (InterruptedException r) {
                     r.printStackTrace();
                 }
-                symbol = 1;
             }
         }
         @Override
