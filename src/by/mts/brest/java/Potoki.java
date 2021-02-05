@@ -13,17 +13,21 @@ public class Potoki {
     static int speed = 50;
     static int s = 5;
     static int p = 5;
+    static int synInt = 0;
+    static int nosynInt = 0;
+    static Object Mask = new Object();
+
 
     public static void main(String[] args) {
 
         inKeis readKeys = new inKeis();
         readKeys.start();
-
+        Gogo gogo = new Gogo();
+        gogo.run();
         Stopper stopper = new Stopper();
         stopper.start();
 
-        Gogo gogo = new Gogo();
-        gogo.run();
+
 
 
 
@@ -35,7 +39,6 @@ public class Potoki {
         @Override
         public void run() {
             while (symbol != 1) {
-
                 System.out.printf("%5d", speed);
                 System.out.print("  |");
                 int i = 0;
@@ -49,7 +52,9 @@ public class Potoki {
                     System.out.print(" ");
                     j++;
                 }
-                System.out.print("| \n");
+                synchronized (Mask){synInt++;}
+                nosynInt++;
+                System.out.print("| " + (synInt - nosynInt) + " " + synInt +" " + nosynInt + "\n");
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
@@ -66,6 +71,8 @@ public class Potoki {
         public void run() {
 
             while (symbol != 1) {
+                synchronized (Mask){synInt++;}
+                nosynInt++;
                 p = 1 + (int) (Math.random() * 2);
                 s = 1 + (int) (Math.random() * 2);
                 try {
@@ -107,9 +114,9 @@ public class Potoki {
 //              } catch (Exception e) {
 //                  e.printStackTrace();
 //              }
-            for (symbol = 1000; symbol > 1; symbol--) {
+            for (symbol = 100; symbol > 1; symbol--) {
                 try {
-                    Thread.sleep(2);
+                    Thread.sleep(20);
                 } catch (InterruptedException r) {
                     r.printStackTrace();
                 }
