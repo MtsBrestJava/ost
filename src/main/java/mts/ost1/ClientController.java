@@ -1,4 +1,4 @@
-package by.mts.brest.java;
+package mts.ost1;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

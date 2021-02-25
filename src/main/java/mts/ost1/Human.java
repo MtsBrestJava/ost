@@ -1,4 +1,4 @@
-package by.mts.brest.java;
+package mts.ost1;
 public class Human {
 
     // Переменные (поля) класса
