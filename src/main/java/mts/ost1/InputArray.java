@@ -1,11 +1,19 @@
-package mts.ost1;
+package by.mts.brest.java;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class InputArray {
-        List<Human> getHumans = new ArrayList<>();
-    public InputArray (Human inputHum){
-        getHumans.add(inputHum);
+    static List<Human> getHumanses = new ArrayList<>();
+
+    //возвращаем массив
+    public static List<Human> getGetHumanses() {
+        return getHumanses;
     }
+
+    //добавляем в массив объекты
+    public InputArray(Human inputHum) {
+            getHumanses.add(inputHum);
+        }
+
 }

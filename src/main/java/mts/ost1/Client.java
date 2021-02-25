@@ -1,4 +1,4 @@
-package mts.ost1;
+package by.mts.brest.java;
 public class Client {
 
     private Integer id;

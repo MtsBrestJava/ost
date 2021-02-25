@@ -1,4 +1,4 @@
-package mts.ost1;
+package by.mts.brest.java;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,18 +33,27 @@ public class RestControllerMy {
         humans.add(new Human("Vova",55,98));
         humans.add(new Human("Gena",787,38));
         return humans;
+
+    }
+    @GetMapping ("/humans/get") //вызываем массив
+    public String getList()
+    {
+        return InputArray.getGetHumanses().toString();
     }
 
     @PostMapping ("/new") // Передаем
     public void inputMetod (@RequestBody String a) {
         System.out.println("a = " + a);
     }
-    @PostMapping ("/humans") // Передаем
+
+    @PostMapping ("/humans") // Передаем в массив объекты и выводим в консоль
     public void inputMetod (@RequestBody Human myNewHuman) {
         System.out.println("myNewHuman" + myNewHuman.toString());
-        InputArray (myNewHuman);
-
-
+        new InputArray(myNewHuman);
     }
+        @PostMapping ("/humans/post") // Передаем в массив объекты без вывода в консоль
+    public void postMetod (@RequestBody Human myNewHuman) {
+            new InputArray(myNewHuman);
+        }
 
 }
