@@ -1,5 +1,7 @@
 package mts.ost1;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+//@RestController
+@Controller
 public class RestControllerMy {
     // http://localhost   127.0.0.1   http://192.168.3.15:8080
     @GetMapping ("/hello")  // Получить
@@ -16,7 +19,7 @@ public class RestControllerMy {
         String someName = "Hello Serega  ";
         return someName + 5;
     }
-    @GetMapping ("/")
+    @GetMapping ("/start")
     public int homePageDigit (){
         System.out.println("START");
         return 99999999;
@@ -55,5 +58,11 @@ public class RestControllerMy {
     public void postMetod (@RequestBody Human myNewHuman) {
             new InputArray(myNewHuman);
         }
+
+    @GetMapping ("/")
+    public String home(Model model) {
+        model.addAttribute("title","Главная страница");
+        return "home";
+    }
 
 }
