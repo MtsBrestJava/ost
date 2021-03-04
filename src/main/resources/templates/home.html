@@ -1,24 +1,18 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="'Островский'"/>
+    <title>Главная страница нового сайта</title>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-body border-bottom shadow-sm">
-    <p class="h5 my-0 me-md-auto fw-normal">Blog</p>
-    <nav class="my-2 my-md-0 me-md-3">
-        <a class="p-2 text-dark" href="#">Главная</a>
-        <a class="p-2 text-dark" href="#">Блог</a>
-        <a class="p-2 text-dark" href="#">Про нас</a>
-        <a class="p-2 text-dark" href="#">Просто</a>
-    </nav>
-    <a class="btn btn-outline-primary" href="#">Супер</a>
-</header>
-<p th:text="'You Go ' + ${title} + '!'" />
+<header th:insert="blocks/header :: header"></header>
+<p th:text="'You Go ' + ${title} + '!'"></p>
+<div class="container mt-5">
+    <h1 th:text="${title}"/></h1>
+</div>
 <main>
-
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
@@ -38,7 +32,7 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <div class="col">
                     <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="10%" y="50%" fill="#eceeef" dy=".3em">Тут будет фото Левченко А.С</text></svg>
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="10%" y="50%" fill="#eceeef" dy=".3em">Тут будет фото Левченко</text></svg>
 
                         <div class="card-body">
                             <p class="card-text">Тут может быть описание всего чего угодно</p>
@@ -185,16 +179,7 @@
             </div>
         </div>
     </div>
-
 </main>
-<footer class="text-muted py-5">
-    <div class="container">
-        <p class="float-end mb-1">
-            <a href="#">Пока всё</a>
-        </p>
-        <p class="mb-1">Права на эту штуку не зарегистрированы</p>
-        <p class="mb-0">Прикольно <a href="/">Возврат на домашнюю страницу</a> наверное <a href="/docs/5.0/getting-started/introduction/">короче читайте инструкцию и все получится</a>.</p>
-    </div>
-</footer>
+  <div th:insert="blocks/footer :: footer"></div>
 </body>
 </html>

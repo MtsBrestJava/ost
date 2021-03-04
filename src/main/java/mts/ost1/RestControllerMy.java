@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-//@RestController
-@Controller
+@RestController
+//@Controller
 public class RestControllerMy {
     // http://localhost   127.0.0.1   http://192.168.3.15:8080
     @GetMapping ("/hello")  // Получить
@@ -45,24 +45,28 @@ public class RestControllerMy {
     }
 
     @PostMapping ("/new") // Передаем
-    public void inputMetod (@RequestBody String a) {
+    public void inputMethod (@RequestBody String a) {
         System.out.println("a = " + a);
     }
 
     @PostMapping ("/humans") // Передаем в массив объекты и выводим в консоль
-    public void inputMetod (@RequestBody Human myNewHuman) {
+    public void inputMethod (@RequestBody Human myNewHuman) {
         System.out.println("myNewHuman" + myNewHuman.toString());
         new InputArray(myNewHuman);
     }
         @PostMapping ("/humans/post") // Передаем в массив объекты без вывода в консоль
-    public void postMetod (@RequestBody Human myNewHuman) {
+    public void postMethod (@RequestBody Human myNewHuman) {
             new InputArray(myNewHuman);
         }
 
-    @GetMapping ("/")
-    public String home(Model model) {
-        model.addAttribute("title","Главная страница");
-        return "home";
-    }
-
+//    @GetMapping ("/")
+//    public String home(Model model) {
+//        model.addAttribute("title", "Главная страница нашего сайта");
+//        return "home";
+//    }
+//    @GetMapping ("/about")
+//    public String about(Model model) {
+//        model.addAttribute("title","Страница про то как мы учим Джаву");
+//        return "about";
+//    }
 }
