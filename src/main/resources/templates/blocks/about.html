@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="header :: header"></header>
+<p th:text="'Поехали ' + ${title} + '!'"></p>
+<div class="container mt-5">
+    <p th:text="'Эта ' + ${title} + ' про то как мы ленимся учить Джаву !'"></p>
+    <ul>
+        <li style="text-align: left;"><strong>Учим самостоятельно</strong></li>
+        <li style="text-align: left;"><strong>Учим на занятих</strong></li>
+        <li style="text-align: left;"><strong>Учим во сне</strong></li>
+    </ul>
+    <table border="1" style="border-collapse: collapse; width: 100%; height: 54px;">
+        <tbody>
+        <tr style="height: 18px;">
+            <td style="width: 25%; height: 18px;">№БС</td>
+            <td style="width: 25%; height: 18px;">Адрес</td>
+            <td style="width: 25%; height: 18px;">Высота</td>
+            <td style="width: 25%; height: 18px;">Количество секторов</td>
+        </tr>
+        <tr style="height: 18px;">
+            <td style="width: 25%; height: 18px;">701</td>
+            <td style="width: 25%; height: 18px;">Машерова, 21</td>
+            <td style="width: 25%; height: 18px;">35</td>
+            <td style="width: 25%; height: 18px;">36</td>
+        </tr>
+        <tr style="height: 18px;">
+            <td style="width: 25%; height: 18px;">787</td>
+            <td style="width: 25%; height: 18px;">Столин</td>
+            <td style="width: 25%; height: 18px;">45</td>
+            <td style="width: 25%; height: 18px;">24</td>
+        </tr>
+        </tbody>
+    </table>
+    <p></p>
+</div>
+<div th:insert="footer :: footer"></div>
+</body>
+</html>

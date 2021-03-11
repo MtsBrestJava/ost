@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Блог сайта</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="header :: header"></header>
+<p th:text="'You Go ' + ${title} + '!'"></p>
+<div class="container mt-5">
+    <h1>Блог сайта</h1>
+    <div th:each="el : ${posts}" class="alert alert-info mt-2">
+        <h3 th:text="${el.title}"/>
+        <h3 th:text="${el.full_text}"/>
+        <p th:text="${el.anons}"/>
+        <p th:text="${el.views}"/>
+        <a th:href="'/blog/'+ ${el.id}" class="btn btn-warning">Детальне</a>
+    </div>
+</div>
+<div th:insert="footer :: footer"></div>
+</body>
+</html>
